@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 791871827286790337}
   - component: {fileID: 8449188015028100896}
   - component: {fileID: 322275721661578201}
+  - component: {fileID: 668558160056058173}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -155,3 +156,22 @@ MonoBehaviour:
   minY: -4
   maxY: 4
   changeTime: 2
+--- !u!114 &668558160056058173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6572024302786716068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23cedba4e89388841b669e843a44e180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  enemyPrefab: {fileID: 6572024302786716068}
+  spawnInterval: 2
+  spawnX: 10
+  minY: -4
+  maxY: 4
+  minSpeed: 2
+  maxSpeed: 5

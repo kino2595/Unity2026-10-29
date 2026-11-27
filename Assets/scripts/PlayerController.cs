@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PlayerController: MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
 
@@ -20,8 +20,8 @@ public class PlayerController: MonoBehaviour
     }
     void Update()
     {
-        float x =Input.GetAxisRaw("Horizontal");
-            float y =Input.GetAxisRaw("Vertical");
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
 
         Vector3 move = new Vector3(x, y, 0).normalized;
 
@@ -39,11 +39,11 @@ public class PlayerController: MonoBehaviour
 
     IEnumerator Blink()
     {
-        isBlinking =true;
+        isBlinking = true;
 
         float timer = 0f;
 
-        while(timer < blinkDuration)
+        while (timer < blinkDuration)
         {
             spriterenderer.enabled = false;
             yield return new WaitForSeconds(blinkInterval);
@@ -51,10 +51,19 @@ public class PlayerController: MonoBehaviour
             spriterenderer.enabled = true;
             yield return new WaitForSeconds(blinkInterval);
 
-            timer += blinkInterval*2;
+            timer += blinkInterval * 2;
         }
 
-        spriterenderer.enabled =true;
+        spriterenderer.enabled = true;
         isBlinking = false;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Enemy")&&!isBlinking)
+        {
+            Debug.Log("“G‚É“–‚½‚Á‚½I");
+            StartCoroutine(Blink());
+        }
     }
 }
